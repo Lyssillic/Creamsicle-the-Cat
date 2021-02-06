@@ -9,12 +9,29 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 5.0f;
     private float horizontalInput;
     private float forwardInput;
+    private Vector3 jump;
+    private float jumpForce = 3.0f;
+    private bool isGrounded;
     Animator m_Animator;
+    Rigidbody rb;
+
 
     // Start is called before the first frame update
     void Start()
     {
         m_Animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+    }
+
+    void Update()
+    {
+        // Lets the character jump when space pressed
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            isGrounded = false;
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+        }
     }
 
     void FixedUpdate()
@@ -37,9 +54,10 @@ public class PlayerMovement : MonoBehaviour
 
         // Animates the cat running
         m_Animator.SetBool("IsRunning", isRunning);
+    }
 
-        // TODO: Figure out jump mechanic
-        //var jump = Input.GetKey(KeyCode.Space) ? true : false;
-        //m_Animator.SetBool("IsJumping", jump);
+    void OnCollisionStay()
+    {
+        isGrounded = true;
     }
 }
