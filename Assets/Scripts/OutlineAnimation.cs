@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using cakeslice;
+using TMPro;
 
 namespace cakeslice
 {
@@ -9,6 +10,7 @@ namespace cakeslice
     {
         public GameObject player;
         public GameObject remote;
+        public TextMeshProUGUI Message;
         private float distance = 0.0f;
         bool pingPong = false;
 
@@ -19,6 +21,7 @@ namespace cakeslice
             distance = Vector3.Distance(remote.transform.position, player.transform.position);
             if (distance < 3.0f)
             {
+                Message.text = "Press E to Interact";
                 if (pingPong)
                 {
                     c.a += Time.deltaTime;
@@ -36,6 +39,7 @@ namespace cakeslice
             } 
             else
             {
+                Message.text = "";
                 c.a = 0;
             }
 
