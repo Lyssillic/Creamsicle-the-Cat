@@ -3,13 +3,14 @@
 public class CameraFollow : MonoBehaviour
 {
     public Transform PlayerTransform;
-    private Vector3 offset;
+    //public float cameraDistance = 10.0f;
+    private Vector3 offset = new Vector3(7.0f, 5.0f, 0.5f);
     private float SmoothFactor = 0.1f;
     private float speed = 5.0f;
 
     void Start()
     {
-        offset = transform.position - PlayerTransform.position;
+        //offset = transform.position - PlayerTransform.position;
     }
 
     void LateUpdate()
