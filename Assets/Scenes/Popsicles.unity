@@ -720,7 +720,7 @@ PrefabInstance:
     - target: {fileID: 7333213801832678802, guid: 1462f0d91572af941aec9e1825cf182d,
         type: 3}
       propertyPath: m_Name
-      value: Blue Raspberry Popsicle
+      value: Blue Cherry Popsicle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1462f0d91572af941aec9e1825cf182d, type: 3}
